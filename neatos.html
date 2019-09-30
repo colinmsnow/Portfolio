@@ -86,20 +86,42 @@
 		<!-- END #fh5co-header -->
 
 		<div class="page-content">
-			<h1 class="mb0">Photography</h1>
-			<div class="meta"><span><a href="#">Photography</a>, <a href="#">Art</a></span></div>
-			<p>I have been doing photography for many years now and always appreciate the beauty of the world as seen through a lens. </p>
+			<h1 class="mb0">Autonomous Navigation with NEATOs</h1>
+			<div class="meta"><span><a href="#">Sensing</a>, <a href="#">MATLAB</a></span></div>
+			<p>An autonomous robot that searches for buckets while avoiding boxes using LIDAR data. </p>
 
 <!--			<p><img src="images/img_large_2.jpg" alt="Free HTML5 by FreeHTML5.co"></p>-->
-			<img src="images/flower.jpg" width = "640" alt="Present Free HTML5 Bootstrap Template">
-			<p></p>
-			<img src="images/fog.jpg" width = "640" alt="Present Free HTML5 Bootstrap Template">
-			<p></p>
-			<img src="images/Untitled_Panorama1-2-2.jpg" width = "640" alt="Present Free HTML5 Bootstrap Template">
+			<img src="images/Challenge.jpg" width = "640" alt="Present Free HTML5 Bootstrap Template">
+			<p> </p>
+<!--			<p><img src="images/20190426_162755.jpg" alt="Free HTML5 by FreeHTML5.co"></p>-->
+<!--
+			<p>This scanner is designed to map objects in the range of 20 to 150 cm from its sensor and has a distance resolution of about 2 cm and an angular resolution of about .5 degrees. It takes thousands of measurements over an area and then represents them as a 3D point cloud in MATLAB. Below is an image it took of a cardboard cutout of the letter N.  </p>
+			<img src="images/xfoil.png" width = "640" alt="Present Free HTML5 Bootstrap Template">
+-->
+			<p>This project is centered around using LIDAR (Light Detection and Ranging) data from a NEATO robotic vacuum to perform tasks in unknown environments. The NEATO is placed inside a pen of unknown dimensions and is tasked with finding a plastic bucket while avoiding any number of boxes that may stand in its way. The only input is a 360 degree LIDAR scan of its environment which is used to create a virtual gradient of its surroundings and then a path to follow based on this gradient. If you are interested in looking further into the math behind this project, the full report can be seen <a href="images/Robots_Module_Final_Report (1).pdf">here. </a>  </p>
 			
+			<h3>Object Localization</h3>
+			
+			<p>The robot determies where it is in the room by interpreting the point cloud created from the LIDAR and then identifying objects based on their point signature. First, the data is run through an iterative RANSAC (Random Sample Consensus) algorithm which identifies straight lines in the data by randomly selecting points and performing linear refgression on them. The line that has the smallest error and longest length is then deemed to be a real object, and the process is continued until a full map of the room is completed. The bucket, being round, is not fit well by a line, and can therefore be found by taking the median of the left over points after fitting. In this way the robot can take a cloud of points and turn it into the diagram below, which shows all of the detected objects.</p>
+			
+			<img src="images/Deliverable1.png" width = "640" alt="Present Free HTML5 Bootstrap Template">
 			<p> </p>
 			
-<!--			<p><img src="images/20190426_162755.jpg" alt="Free HTML5 by FreeHTML5.co"></p>-->
+			<h3>Gradient Creation</h3>
+			
+			<p>Once the room is mapped, the robot needs to find a path through the obstacles that leads to the objective. It does this by creating a 3D function where the walls are depicted as high points and the objective as a hole, giving a mathematical representation of the pen which can be used for navigation.</p>
+			
+			<img src="images/Deliverable2.jpg" width = "640" alt="Present Free HTML5 Bootstrap Template">
+			<p> </p>
+			
+			<h3>Gradient Descent</h3>
+			
+			<p>With a fully created function to lead the robot, all that is rquired is for the robot to perform gradient descent, essentially sliding down the gradient to its lowest point. By using a 3D function with a gradual contour, the robot learns to avoid the obstacles while still keeping a smooth path through the pen. The calculated path as well as the actual path of the robot can be seen below, with the slight variation between the two mostly caused by the latency of the motors and other external factors. </p>
+			
+			<img src="images/Experimental_Path.jpg" width = "640" alt="Present Free HTML5 Bootstrap Template">
+			<p> </p>
+			
+			<p>With this combination of sensing and math, a vision-based, adaptable searching algorithm can be formed which reacts to outside influences and reliably completes its objectives.</p>
 			
 		</div>
 
