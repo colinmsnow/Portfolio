@@ -41,7 +41,7 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
@@ -113,7 +113,20 @@
 			<h4>Printing Fish</h4>
 			<p>Our current designs are printed in carbon-fiber reinforced nylon, but in this iteration we chose to just use PLA because it was faster and cheaper. The CAD model in this design takes into account all of the necessary items such as sensors, acutators, and controllers, but is therefore relatively clunky and not very hydrodynamic.</p>
 			<h4>Assembly and Wiring</h4>
-			<p>Because of the large amount of wires to each sensor and actuator, the wiring diagram can be slightly confusing, but in its most basic form the sensors send data to the arduino which then interprets these signals and sends motor commands to the actuators through a h-bridge relay.</p>
+			<p>Because of the large amount of wires to each sensor and actuator, the wiring becomes slightly confusing, but in its most basic form data travels from the sensors to the Arduino which controls the motors. The h-bridges are really just very fast switches which modulate the current through the coils so that it does not have to flow through the Arduino. </p>
+			<img src="images/Copy of robofish switch rearranged highlighted.png" alt="Free HTML5 by FreeHTML5.co">
+			
+			
+			<p>The mechanical assembly is very simple and only requires removing the supports from the print and adding a few ball bearings to the joints.</p>
+			
+			<h4>PCB Production</h4>
+			<img src="images/20190416_151354.jpg" alt="Free HTML5 by FreeHTML5.co">
+			<p>Because the circuit required for the fish is so complex and difficult to create in a small size factor, we created custom printed circuit boards which dramatically reduce the time required to manufacture the fish. The circuit diagram for the PCB can be seen below, with pinouts for each of the sensors and motors as well as raw power. This board reduces the amount of wires required to about half, and allows for a more compact brain module.</p>
+			<img src="images/TestBoard.svg" alt="Free HTML5 by FreeHTML5.co">
+			<p>The board was designed in KiCad and then sent out for manufacturing.</p>
+			
+			
+			
 			
 			
 	</div>
