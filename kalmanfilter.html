@@ -7,7 +7,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Present &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+	<title>Colin Snow</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -41,7 +41,7 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900" rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
@@ -71,35 +71,35 @@
 		<header id="fh5co-header" role="banner">
 			<div class="container text-center">
 				<div id="fh5co-logo">
-					<a href="index.html"><img src="images/logo.png" width = "640" alt="Present Free HTML5 Bootstrap Template">
-</a>
-
+					<a href="index.html"><img src="images/logo.png" width = "640" alt="Present Free HTML5 Bootstrap Template"></a>
 				</div>
 				<nav>
 					<ul>
 						<li><a href="about.html">About</a></li>
-						<li><a href="work.html">Work</a></li>
+						<li class="active"><a href="work.html">Work</a></li>
 						<li><a href="contact.html">Contact</a></li>
+<!--						<li><a href="#">Instagram</a></li>-->
 					</ul>
 				</nav>
 			</div>
 		</header>
 		<!-- END #fh5co-header -->
 
-		
-		
-		
-		
-		
-			<!--Pages to add:
-				--Star Tracker
-				--Braille Printer
-				Panorama Mount
-				--Othello Learning
-				--Robot Arm
-				--Balancing Robot
-				
-			-->
+		<div class="page-content">
+			<h1 class="mb0">GPS Smoothing with Kalman Filter</h1>
+			<div class="meta"><span><a href="#">Algorithms</a>, <a href="#">Robotics</a></span></div>
+			<p>An implementation of a Kalman Filter to improve smartphone localization</p>
+
+
+			<img src="images/kalman/kalmanpath.png" width = "640" alt="Kalman filter path">
+
+			<p>Modern smartphones are packed with sensors but the size and cost limitations imposed to fit them in phones mean they make many compromises on speed and accuracy. Smartphone GPS rarely exceeds 1 HZ and their IMUs tend to drift quite dramatically when in motion. However, by combining the results from several of these sensors we can produce a result that is much better than any one stream and is accurate enough to be usable for medium-accuracy positioning.</p>
+			<p>We perform this combination with a Kalman Filter, an algorithm that combines measuements along with expectations about those measurements' error to iteratively update a position estimate. This estimate is driven in the short term by estimates from fast sensors like the accelerometer and gyro and in the long term with the slow but globally-accurate GPS.</p>
+			<p><a href="https://www.notion.so/Path-Reconstruction-and-Filtering-with-a-Kalman-Filter-a8eda5dd017849299e3fb571f876a8ac">Click here to see our implementation and some sample results</a></p>
+
+			
+
+		</div>
 
 		<div class="container-fluid pt70 pb70">
 			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
@@ -115,189 +115,128 @@
 						<h2>ThayerMahan</h2>
 					</a>
 				</div>
-				<div class="fh5co-project masonry-brick">
-					<a href="3dpathplanning.html">
-						<img src="images/pathplanning/delaunycomplex.png" width = "300" alt="Robotic fish prototype">
-						<h2>3D Path Planning</h2>
-					</a>
-				</div>
+	
 				<div class="fh5co-project masonry-brick">
 					<a href="MORA.html">
-						<img src="images/20190416_140952.jpg" width = "300" alt="Robotic fish prototype">
+						<img src="images/20190416_140952.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Project MORA</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="cablebot.html">
-						<img src= "images/Cablebot/IMG_2329.jpg" width = "300" alt="Cable climbing robot">
+						<img src= "images/Cablebot/IMG_2329.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Cable Bot</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
-					<a href="kalmanfilter.html">
-						<img src="images/kalman/kalmanpath.png" width = "300" alt="Kalman Filter">
-						<h2>3D Path Planning</h2>
-					</a>
-				</div>
-				<div class="fh5co-project masonry-brick">
 					<a href="FilamentWinder.html">
-						<img src="images/20190511_202906.jpg" width = "300" alt="Filament winding machine">
+						<img src="images/20190511_202906.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Filament Winder</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="EvolutionaryAlgorithms.html">
-						<img src="images/shetty_snsnaps.png" width = "300" alt="Airfoil with pressure gradient">
+						<img src="images/shetty_snsnaps.png" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Evolutionary Airfoils</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="brailleprinter.html">
-						<img src="images/20191213-GJ6A7786.jpg" width = "300" alt="Braille printer full assembly">
+						<img src="images/20191213-GJ6A7786.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Braille Printer</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="arm.html">
-						<img src="images/3dprinted.jpg" width = "300" alt="Gearbox for robotic arm">
+						<img src="images/3dprinted.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Robot Arm</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="scanner.html">
-						<img src="images/20190925_200547_copy.jpg" width = "300" alt="3D Scanner created with generative design">
+						<img src="images/20190925_200547_copy.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Generative 3D Scanner</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="pong.html">
-						<img src="images/start.png" width = "300" alt="Main page for OpenCV Pong">
+						<img src="images/start.png" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>OpenCV Pong</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="othello.html">
-						<img src="images/othello.png" width = "300" alt="Reinforcement learning logo">
+						<img src="images/othello.png" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Reinforcement Learning</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="boat.html">
-						<img src="images/20190220_095343.jpg" width = "300" alt="Boat in pool">
+						<img src="images/20190220_095343.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>A boat Designed to Tip</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="photography.html">
-						<img src="images/flower.jpg" width = "300" alt="Rose">
+						<img src="images/flower.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Photography</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="sailing.html">
-						<img src="images/received_2254025054811649.jpg" width = "300" alt="Sailboat">
+						<img src="images/received_2254025054811649.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Sailing</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="neatos.html">
-						<img src="images/Challenge.jpg" width = "300" alt="NEATO Robot">
+						<img src="images/Challenge.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Autonomous Robotics</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="shed.html">
-						<img src="images/20190626_143901.jpg" width = "300" alt="Shed without roof">
+						<img src="images/20190626_143901.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Shed</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="bread.html">
-						<img src="images/20190708_124833.jpg" width = "300" alt="Sourdough loaf">
+						<img src="images/20190708_124833.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Bread</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="startracker.html">
-						<img src="images/20190512_173146.jpg" width = "300" alt="Star tracker with bar">
+						<img src="images/20190512_173146.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Star Tracker</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="balance.html">
-						<img src="images/20200312_151712.jpg" width = "300" alt="Self balancing robot">
+						<img src="images/20200312_151712.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Balancing Robot</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="panorama.html">
-						<img src="images/received_862563547524097.jpg" width = "300" alt="Panorama mount pieces">
+						<img src="images/received_862563547524097.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Panorama Mount</h2>
 					</a>
 				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="composites.html">
-						<img src="images/20190930_202219.jpg" width = "300" alt="Carbon fiber tests">
+						<img src="images/20190930_202219.jpg" width = "300" alt="Free HTML5 by FreeHTML5.co">
 						<h2>Composites</h2>
 					</a>
 				</div>
 
-<!--
-				<div class="fh5co-project masonry-brick">
-					<a href="single.html">
-						<img src="images/img_13.jpg" alt="Free HTML5 by FreeHTML5.co">
-						<h2>Star Tracker</h2>
-					</a>
-				</div>
-				<div class="fh5co-project masonry-brick">
-					<a href="single.html">
-						<img src="images/img_14.jpg" alt="Free HTML5 by FreeHTML5.co">
-						<h2>Your Project Title Here</h2>
-					</a>
-				</div>
-				<div class="fh5co-project masonry-brick">
-					<a href="single.html">
-						<img src="images/img_15.jpg" alt="Free HTML5 by FreeHTML5.co">
-						<h2>Your Project Title Here</h2>
-					</a>
-				</div>
-				<div class="fh5co-project masonry-brick">
-					<a href="single.html">
-						<img src="images/img_16.jpg" alt="Free HTML5 by FreeHTML5.co">
-						<h2>Your Project Title Here</h2>
-					</a>
-				</div>
-				<div class="fh5co-project masonry-brick">
-					<a href="single.html">
-						<img src="images/img_17.jpg" alt="Free HTML5 by FreeHTML5.co">
-						<h2>Your Project Title Here</h2>
-					</a>
-				</div>
-				<div class="fh5co-project masonry-brick">
-					<a href="single.html">
-						<img src="images/img_18.jpg" alt="Free HTML5 by FreeHTML5.co">
-						<h2>Your Project Title Here</h2>
-					</a>
-				</div>
-				<div class="fh5co-project masonry-brick">
-					<a href="single.html">
-						<img src="images/img_19.jpg" alt="Free HTML5 by FreeHTML5.co">
-						<h2>Your Project Title Here</h2>
-					</a>
-				</div>
-				<div class="fh5co-project masonry-brick">
-					<a href="single.html">
-						<img src="images/img_20.jpg" alt="Free HTML5 by FreeHTML5.co">
-						<h2>Your Project Title Here</h2>
-					</a>
-				</div>
--->
 			</div>
 			<!--END .fh5co-projects-feed-->
 		</div>
 		<!-- END .container-fluid -->
 
-		<footer id="fh5co-footer" role="contentinfo">
+				<footer id="fh5co-footer" role="contentinfo">
 			<div class="container-fluid">
 				<div class="footer-content">
 					<div class="copyright"><small>&copy; Colin Snow <br>Designed by <a href="http://freehtml5.co/">FreeHTML5.co</a> Images: <a href="http://graphicburger.com/">GraphicBurger</a></small></div>

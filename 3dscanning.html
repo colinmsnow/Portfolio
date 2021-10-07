@@ -41,7 +41,7 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900" rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
@@ -86,59 +86,35 @@
 		<!-- END #fh5co-header -->
 
 		<div class="page-content">
-			<h1 class="mb0">Project MORA</h1>
-			<div class="meta"><span><a href="#">Underwater</a>, <a href="#">Biomimetics</a></span></div>
-			<p>A small, biomimetic robotic fish designed for environmental sensing</p>
-			<p><img src="images/20190416_140952.jpg" alt="Free HTML5 by FreeHTML5.co"></p>
+			<h1 class="mb0">Scan Optimization by Probabilistic Analysis</h1>
+			<div class="meta"><span><a href="#">Algorithms</a>, <a href="#">Statistics</a></span></div>
+			<p>A probabilistic methodology for quantifying information gathered from 3D scans and potential applications in scan optimization.</p>
+
+			<h3>Background</h3>
+
+
 <!--			<p><img src="images/img_large_2.jpg" alt="Free HTML5 by FreeHTML5.co"></p>-->
-			<video controls loop muted width="480" height="360" autoplay alt="Present Free HTML5 Bootstrap Template" >
-  				<source src="images/20190416_140645.mp4" type="video/mp4">
-  				<source src="movie.ogg" type="video/ogg">
-				Your browser does not support the video tag.
-			</video>
-		  <p>This project aims to develop a small, low-cost robot for use as a swarm agent. Swarms of tiny robots have an increasing area of potential applications, including sensing and collecting data over large areas with a distributed network, monitoring fragile ecosystems like coral reefs, and synthetic biology test beds for swarm algorithm research and education.</p>
-<!--			<p><img src="images/img_large_3.jpg" alt="Free HTML5 by FreeHTML5.co"></p>-->
+
+			<p>Object scanning technology is seeing an explosion in popularity and usefulness as many technologies such as 3D LIDAR and Photogrammetry have become increasingly cheap and reliable. All of these technologies effectively work by taking multiple scans of an object from different perspectives and using this data to reconstruct a best approximation of its 3D form. The algorithms that do this computation are extremely good but they can only do so much to account for a lack of information that comes from incomplete data from the initial scan.</p>
+			<img src="images/3dscan/twoscanners.png" width = "640" alt="3D meshing of obstacle corners">
+			<p>Currently, most of this scanning is performed by human drone operators who attempt to capture enough data to construct the model and not miss any spots. Given the complexity of the task, any human pilot is likely to either underscan some areas which would require another flight to correct or capture an excess of data which wastes flight time and computational complexity in reconstruction.</p>
+
+			<p>In order to optimize this process we would like to capture the maximum amount of information about the system per scan, thus minimizing the amount of time and data we need to achieve some level of model fidelity. One simple way to achieve this would be to use a simple heuristic like the number of times a point has been scanned to assess our uncertainty about its position. While this is certainly better than nothing, it fails to fully capture the measurement uncertainty and thus can give us misleading results about our data accuracy. For example if you were to take six pictures of the same point from roughly the same place you may get six references about that point's position but you would know very little more than you knew after the first image about how much error that estimate contains.</p>
+			<p>In order to understand how much information we get from an image we must first create a model for the uncertainty of our measurements. Many SLAM algorithms rely on modeling sensor uncertainty using some form of gaussian noise but this assumption turns out to have disasterous consequences when applied to sensors like 3D LIDAR because their error is inherently variable. Consider a LIDAR which as some small distance and angular uncertainty. Modelling this uncertainty with gaussian noise would yield a cloud evenly distributed about the target point. However, this does not account for the fact that horizontal position error is actually a function of distance since small angular errors grow into large linear errors at long distances. In the graphic below you can see that as points move further from the scanner their uncerainty grows along a circle centered at the scanner.</p>
+			<img src="images/3dscan/threepoints.png" width = "640" alt="3D meshing of obstacle corners">
+
+			<p>Once we have a suitable model which accounts for these non-gaussian errors, we can apply it to determine how a set of points should be observed in order to prodice the maximum amount of information per observation. Since our uncertainty model is likely to be too complex to calculate analytically, we use Monte Carlo sampling to create expected distributions around all of our observed points. This then lets us calculate measures like the standard deviation of these samples which gives us a good heuristic for uncertainty. Then, when we are deciding where to take the next sample, we can again calculate expected distributions about our estimate of the object's position and perform gradient descent to find the point which minimizes our uncertainty about the position of all the points, thus maximizing the information gained about the system.</p>
+			<p>The outputs of this model could then suggest next points for pilots to fly to and tell them when they have captured enough information to create a model to a certain tolerance. Alternatively, the model could be adapted to calculate routes for autonomous vehicles such that they capture the maximum amount of information over the route as a whole.</p>
+			<h3>Paper</h3>
+			<p>Here is the full text of the report which details the methods for model creation and some sample results. It goes much more int detail about uncertainty quantification and methods for optimization.</p>
+			<iframe src="images/3dscan/3dscan.pdf" width="100%" height="900px">
+    		</iframe>
 			
-			<h3>Where we are now</h3>
-			<p>The fish is 10 cm long and is controlled completely autonomously. It swims by precisely modulating the power of three actuators, one per joint, according to feedback from its angle sensors.  </p>
-			<h2>Where we have been</h2>
-			<p>This project has been going for several years now and in that time we have gone through countless iterations and redesigns. Here is a sampling of what we have learned in that time:</p>
-			<h3>Creating the first sensing fish</h3>
-			<img src="images/20181104_170805.jpg"  alt="Free HTML5 by FreeHTML5.co">
-		  <p>Our first fish with angle sensors caused a revelation in our swimming pattern as we were able to use real time data instead of predictions to tune our motion.</p>
-		  <h4>Building Sensors</h4>
-			<p><img src="images/20181105_161913.jpg" alt="Free HTML5 by FreeHTML5.co"></p>
-			<p>We use multidirectional hall-effect sensors to measure the position of our actuators, which are simply a magnet in a small copper coil. These sensors have to be surface mounted to a board and run with extremely tiny wires all the way back to the head of the fish where the Arduino is. The wires must be small and carefully run so that they do not interfere with the motion of the joints. Each sensor sits just below one of the actuator coils and must be carefully glued in place to prevent any vibrations.</p>
-			
-			<h4>Printing Fish</h4>
-			<p>Our current designs are printed in carbon-fiber reinforced nylon, but in this iteration we chose to just use PLA because it was faster and cheaper. The CAD model in this design takes into account all of the necessary items such as sensors, acutators, and controllers, but is therefore relatively clunky and not very hydrodynamic.</p>
-			<h4>Assembly and Wiring</h4>
-			<p>Because of the large amount of wires to each sensor and actuator, the wiring becomes slightly confusing, but in its most basic form data travels from the sensors to the Arduino which controls the motors. The h-bridges are really just very fast switches which modulate the current through the coils so that it does not have to flow through the Arduino. </p>
-			<img src="images/Copy of robofish switch rearranged highlighted.png" alt="Free HTML5 by FreeHTML5.co">
-			
-			
-			<p>The mechanical assembly is very simple and only requires removing the supports from the print and adding a few ball bearings to the joints.</p>
-			
-			<h4>PCB Production</h4>
-			<img src="images/20190416_151354.jpg" alt="Free HTML5 by FreeHTML5.co">
-			<p>Because the circuit required for the fish is so complex and difficult to create in a small size factor, we created custom printed circuit boards which dramatically reduce the time required to manufacture the fish. The circuit diagram for the PCB can be seen below, with pinouts for each of the sensors and motors as well as raw power. This board reduces the amount of wires required to about half, and allows for a more compact brain module.</p>
-			<img src="images/TestBoard.svg" alt="Free HTML5 by FreeHTML5.co">
-			<p>The board was designed in KiCad and then sent out for manufacturing.</p>
-			
-			
-			
-			
-			
-	</div>
+
+		</div>
 
 		<div class="container-fluid pt70 pb70">
 			<div id="fh5co-projects-feed" class="fh5co-projects-feed clearfix masonry">
-				<div class="fh5co-project masonry-brick">
-					<a href="3dscanning.html">
-						<img src="images/3dscan/threepoints.png" width = "300" alt="3D LIDAR scans">
-						<h2>Scan Optimization by Probabilistic Analysis</h2>
-					</a>
-				</div>
 				<div class="fh5co-project masonry-brick">
 					<a href="thayermahan.html">
 						<img src="images/thayermahan/thayermahan.png" width = "300" alt="thayermahan logo">
